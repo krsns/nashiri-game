@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nashiri dan Teman Robot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #FFE5F3 0%, #FFD1E3 50%, #E8F5FF 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .game-container {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(255,182,193,0.3);
+            max-width: 800px;
+            width: 95%;
+            min-height: 600px;
+            overflow: hidden;
+            border: 5px solid #FFB6C1;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #FF69B4, #87CEEB, #98FB98);
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .game-area {
+            padding: 30px;
+        }
+        
+        .story-section {
+            background: linear-gradient(145deg, #FFF8DC, #F0F8FF);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 3px solid #FFB6C1;
+            box-shadow: 0 8px 20px rgba(255,182,193,0.2);
+        }
+        
+        .character {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #FF69B4, #87CEEB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin-right: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+        
+        .character-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        
+        .challenge-area {
+            background: #FFF;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #98FB98;
+            box-shadow: 0 5px 15px rgba(152,251,152,0.3);
+        }
+        
+        .challenge-title {
+            font-size: 1.4em;
+            color: #FF69B4;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .code-blocks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .code-block {
+            background: linear-gradient(145deg, #FF69B4, #FF1493);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+        
+        .code-block:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .code-block.selected {
+            background: linear-gradient(145deg, #32CD32, #228B22);
+            transform: scale(1.1);
+            animation: bounce 0.5s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) scale(1.1);
+            }
+            40% {
+                transform: translateY(-10px) scale(1.1);
+            }
+            60% {
+                transform: translateY(-5px) scale(1.1);
+            }
+        }
+        
+        .solution-area {
+            background: #F0F8FF;
+            border: 4px solid #87CEEB;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #4169E1;
+            text-align: center;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #32CD32, #228B22);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .progress-stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .star {
+            font-size: 2em;
+            color: #DDD;
+            transition: color 0.3s ease;
+        }
+        
+        .star.filled {
+            color: #FFD700;
+            animation: sparkle 0.5s ease;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .feedback {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .feedback.success {
+            background: linear-gradient(145deg, #98FB98, #90EE90);
+            color: #006400;
+            border: 3px solid #32CD32;
+            animation: celebrate 0.6s ease;
+        }
+        
+        .feedback.error {
+            background: linear-gradient(145deg, #FFB6C1, #FFA0B4);
+            color: #8B0000;
+            border: 3px solid #FF69B4;
+        }
+        
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.05) rotate(-2deg); }
+            75% { transform: scale(1.05) rotate(2deg); }
+        }
+        
+        .level-indicator {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF69B4, #87CEEB);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .nashiri-avatar {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+        }
+        
+        .robot-avatar {
+            background: linear-gradient(45deg, #87CEEB, #4169E1);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🌟 Nashiri & Robot Koko 🤖</h1>
+            <p>Petualangan Seru Belajar Perintah!</p>
+        </div>
+        
+        <div class="game-area">
+            <div class="level-indicator" id="levelIndicator">Cerita 1: Kenalan</div>
+            
+            <div class="progress-stars" id="progressStars">
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+            </div>
+            
+            <div class="story-section" id="storySection">
+                <div class="character">
+                    <div class="avatar nashiri-avatar">👧</div>
+                    <div class="character-text">
+                        <strong>Nashiri:</strong><br>
+                        "Wah, ada robot lucu! Hai robot, siapa namamu?"
+                    </div>
+                </div>
+                
+                <div class="character">
+                    <div class="avatar robot-avatar">🤖</div>
+                    <div class="character-text">
+                        <strong>Robot Koko:</strong><br>
+                        "Hai Nashiri! Aku Koko! Aku suka bermain tapi aku hanya bisa bergerak kalau ada yang kasih perintah. Mau main sama aku?"
+                    </div>
+                </div>
+                
+                <div class="challenge-area">
+                    <div class="challenge-title">🎯 Mari Bantu Koko Bergerak!</div>
+                    <p style="text-align: center; font-size: 1.1em; margin-bottom: 20px;">
+                        Koko mau maju ke depan untuk ambil bola. Klik tombol yang tepat!
+                    </p>
+                    
+                    <div class="code-blocks" id="codeBlocks">
+                        <div class="code-block" data-value="maju">🚶 MAJU</div>
+                        <div class="code-block" data-value="mundur">🔙 MUNDUR</div>
+                        <div class="code-block" data-value="kiri">👈 KIRI</div>
+                        <div class="code-block" data-value="kanan">👉 KANAN</div>
+                    </div>
+                    
+                    <div class="solution-area" id="solutionArea">
+                        Pilih satu tombol untuk bantu Koko! 🎈
+                    </div>
+                    
+                    <div class="buttons">
+                        <button class="btn btn-primary" onclick="checkSolution()">✨ Jalankan!</button>
+                        <button class="btn btn-secondary" onclick="resetSolution()">🔄 Ulang</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        let selectedBlocks = [];
+        let currentLevel = 1;
+        
+        const levels = {
+            1: {
+                title: "Cerita 1: Kenalan",
+                nashiri: "Wah, ada robot lucu! Hai robot, siapa namamu?",
+                koko: "Hai Nashiri! Aku Koko! Aku suka bermain tapi aku hanya bisa bergerak kalau ada yang kasih perintah. Mau main sama aku?",
+                challenge: "Koko mau maju ke depan untuk ambil bola. Klik tombol yang tepat!",
+                blocks: [
+                    {value: "maju", text: "🚶 MAJU"},
+                    {value: "mundur", text: "🔙 MUNDUR"},
+                    {value: "kiri", text: "👈 KIRI"},
+                    {value: "kanan", text: "👉 KANAN"}
+                ],
+                solution: ["maju"],
+                stars: 1
+            },
+            2: {
+                title: "Cerita 2: Bermain Bola",
+                nashiri: "Bagus Koko! Sekarang kita main lempar bola yuk!",
+                koko: "Asyik! Tapi aku harus ambil bola dulu, terus lempar ke Nashiri. Bantu aku ya!",
+                challenge: "Koko perlu ambil bola dulu, baru lempar. Pilih 2 perintah yang benar!",
+                blocks: [
+                    {value: "ambil", text: "✋ AMBIL"},
+                    {value: "lempar", text: "⚾ LEMPAR"},
+                    {value: "lompat", text: "🦘 LOMPAT"},
+                    {value: "tidur", text: "😴 TIDUR"}
+                ],
+                solution: ["ambil", "lempar"],
+                stars: 2
+            },
+            3: {
+                title: "Cerita 3: Pesta Dansa",
+                nashiri: "Koko pintar! Sekarang kita dansa yuk! Tapi kalau musik berhenti, kita harus diam.",
+                koko: "Wah seru! Jadi kalau ada musik, aku dansa. Kalau tidak ada musik, aku diam ya?",
+                challenge: "Jika ada musik, Koko dansa. Jika tidak, Koko diam. Pilih yang benar!",
+                blocks: [
+                    {value: "jika_musik", text: "🎵 JIKA ADA MUSIK"},
+                    {value: "dansa", text: "💃 DANSA"},
+                    {value: "diam", text: "🤫 DIAM"},
+                    {value: "bernyanyi", text: "🎤 NYANYI"}
+                ],
+                solution: ["jika_musik", "dansa"],
+                stars: 3
+            }
+        };
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLevel(currentLevel);
+            setupCodeBlocks();
+        });
+        
+        function loadLevel(level) {
+            const levelData = levels[level];
+            if (!levelData) return;
+            
+            document.getElementById('levelIndicator').textContent = levelData.title;
+            updateStars(levelData.stars);
+            
+            const storySection = document.getElementById('storySection');
+            storySection.innerHTML = `
+                <div class="character">
+                    <div class="avatar nashiri-avatar">👧</div>
+                    <div class="character-text">
+                        <strong>Nashiri:</strong><br>
+                        "${levelData.nashiri}"
+                    </div>
+                </div>
+                
+                <div class="character">
+                    <div class="avatar robot-avatar">🤖</div>
+                    <div class="character-text">
+                        <strong>Robot Koko:</strong><br>
+                        "${levelData.koko}"
+                    </div>
+                </div>
+                
+                <div class="challenge-area">
+                    <div class="challenge-title">🎯 Mari Bantu Koko!</div>
+                    <p style="text-align: center; font-size: 1.1em; margin-bottom: 20px;">
+                        ${levelData.challenge}
+                    </p>
+                    
+                    <div class="code-blocks" id="codeBlocks">
+                        ${levelData.blocks.map(block => `<div class="code-block" data-value="${block.value}">${block.text}</div>`).join('')}
+                    </div>
+                    
+                    <div class="solution-area" id="solutionArea">
+                        Pilih tombol untuk bantu Koko! 🎈
+                    </div>
+                    
+                    <div class="buttons">
+                        <button class="btn btn-primary" onclick="checkSolution()">✨ Jalankan!</button>
+                        <button class="btn btn-secondary" onclick="resetSolution()">🔄 Ulang</button>
+                    </div>
+                </div>
+            `;
+            
+            setupCodeBlocks();
+            selectedBlocks = [];
+        }
+        
+        function updateStars(targetStars) {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < targetStars) {
+                    setTimeout(() => {
+                        star.classList.add('filled');
+                    }, index * 200);
+                } else {
+                    star.classList.remove('filled');
+                }
+            });
+        }
+        
+        function setupCodeBlocks() {
+            document.querySelectorAll('.code-block').forEach(block => {
+                block.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const levelData = levels[currentLevel];
+                    
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        selectedBlocks = selectedBlocks.filter(b => b !== value);
+                    } else {
+                        // Untuk level 1, hanya bisa pilih 1
+                        if (currentLevel === 1 && selectedBlocks.length > 0) {
+                            document.querySelectorAll('.code-block.selected').forEach(b => b.classList.remove('selected'));
+                            selectedBlocks = [];
+                        }
+                        // Untuk level 2 & 3, maksimal sesuai solution length
+                        if (selectedBlocks.length < levelData.solution.length) {
+                            this.classList.add('selected');
+                            selectedBlocks.push(value);
+                        }
+                    }
+                    
+                    updateSolutionArea();
+                });
+            });
+        }
+        
+        function updateSolutionArea() {
+            const solutionArea = document.getElementById('solutionArea');
+            if (selectedBlocks.length === 0) {
+                solutionArea.textContent = 'Pilih tombol untuk bantu Koko! 🎈';
+            } else {
+                const levelData = levels[currentLevel];
+                const displayText = selectedBlocks.map(block => {
+                    const blockData = levelData.blocks.find(b => b.value === block);
+                    return blockData ? blockData.text : block;
+                }).join(' → ');
+                solutionArea.innerHTML = `<div style="font-size: 1.3em; color: #FF69B4;">Koko akan: ${displayText}</div>`;
+            }
+        }
+        
+        function checkSolution() {
+            const levelData = levels[currentLevel];
+            const isCorrect = selectedBlocks.length === levelData.solution.length && 
+                             selectedBlocks.every(block => levelData.solution.includes(block));
+            
+            const feedback = document.getElementById('feedback');
+            
+            if (isCorrect) {
+                const responses = [
+                    "🎉 Hebat Nashiri! Koko berhasil! Kamu pintar sekali!",
+                    "⭐ Bagus banget! Koko senang sekali bisa bermain dengan Nashiri!",
+                    "🌟 Wow! Nashiri dan Koko tim yang hebat! Kalian berhasil!"
+                ];
+                
+                feedback.innerHTML = `
+                    <div class="feedback success">
+                        ${responses[Math.floor(Math.random() * responses.length)]}
+                        ${currentLevel < 3 ? '<br><button class="btn btn-primary" style="margin-top: 15px;" onclick="nextLevel()">🎈 Cerita Selanjutnya!</button>' : '<br><strong>🏆 Selamat! Nashiri sudah jadi teman terbaik Koko! 🎊</strong>'}
+                    </div>
+                `;
+            } else {
+                const encouragements = [
+                    "🤔 Hmm, coba lagi ya Nashiri! Koko masih bingung nih!",
+                    "😊 Ayo coba sekali lagi! Nashiri pasti bisa!",
+                    "🎈 Tidak apa-apa, mari kita coba lagi bersama!"
+                ];
+                
+                feedback.innerHTML = `
+                    <div class="feedback error">
+                        ${encouragements[Math.floor(Math.random() * encouragements.length)]}
+                    </div>
+                `;
+            }
+        }
+        
+        function resetSolution() {
+            selectedBlocks = [];
+            document.querySelectorAll('.code-block').forEach(block => {
+                block.classList.remove('selected');
+            });
+            updateSolutionArea();
+            document.getElementById('feedback').innerHTML = '';
+        }
+        
+        function nextLevel() {
+            currentLevel++;
+            if (currentLevel <= 3) {
+                loadLevel(currentLevel);
+                document.getElementById('feedback').innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
