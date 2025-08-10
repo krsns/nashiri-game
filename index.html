@@ -286,6 +286,13 @@
                 <span class="star">⭐</span>
                 <span class="star">⭐</span>
                 <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
             </div>
             
             <div class="story-section" id="storySection">
@@ -379,6 +386,108 @@
                 ],
                 solution: ["jika_musik", "dansa"],
                 stars: 3
+            },
+            4: {
+                title: "Cerita 4: Lomba Lari",
+                nashiri: "Koko, ayo kita lomba lari! Kamu harus lari 3 kali putaran!",
+                koko: "Oke! Tapi aku perlu diajari cara mengulang gerakan. Gimana caranya?",
+                challenge: "Koko harus lari 3 kali. Gunakan ULANGI untuk membuat Koko lari berulang!",
+                blocks: [
+                    {value: "ulangi_3", text: "🔄 ULANGI 3 KALI"},
+                    {value: "lari", text: "🏃 LARI"},
+                    {value: "jalan", text: "🚶 JALAN"},
+                    {value: "istirahat", text: "😌 ISTIRAHAT"}
+                ],
+                solution: ["ulangi_3", "lari"],
+                stars: 4
+            },
+            5: {
+                title: "Cerita 5: Mencari Harta Karun",
+                nashiri: "Koko, ada harta karun! Tapi kita harus pilih jalur yang benar.",
+                koko: "Wah seru! Kalau ada jalan, aku maju. Kalau ada tembok, aku belok kanan ya!",
+                challenge: "Jika ada jalan, maju. Jika ada tembok, belok kanan. Pilih logika yang tepat!",
+                blocks: [
+                    {value: "jika_jalan", text: "🛤️ JIKA ADA JALAN"},
+                    {value: "maju", text: "⬆️ MAJU"},
+                    {value: "jika_tembok", text: "🧱 JIKA ADA TEMBOK"},
+                    {value: "belok_kanan", text: "➡️ BELOK KANAN"}
+                ],
+                solution: ["jika_jalan", "maju", "jika_tembok", "belok_kanan"],
+                stars: 5
+            },
+            6: {
+                title: "Cerita 6: Robot Penjaga",
+                nashiri: "Oh tidak! Ada robot penjaga. Kita harus sembunyi sampai dia pergi!",
+                koko: "Aku akan terus mengecek. Selama ada penjaga, aku sembunyi. Kalau sudah aman, aku jalan!",
+                challenge: "Selama ada penjaga, sembunyi. Ketika aman, jalan terus. Buat logic WHILE!",
+                blocks: [
+                    {value: "selama_penjaga", text: "⚠️ SELAMA ADA PENJAGA"},
+                    {value: "sembunyi", text: "🫥 SEMBUNYI"},
+                    {value: "ketika_aman", text: "✅ KETIKA AMAN"},
+                    {value: "jalan", text: "🚶 JALAN"}
+                ],
+                solution: ["selama_penjaga", "sembunyi", "ketika_aman", "jalan"],
+                stars: 6
+            },
+            7: {
+                title: "Cerita 7: Taman Bunga",
+                nashiri: "Lihat Koko, ada taman bunga! Kita harus menyiram setiap bunga satu per satu.",
+                koko: "Aku akan cek setiap bunga. Untuk setiap bunga yang kutemukan, aku siram!",
+                challenge: "Untuk setiap bunga di taman, siram dengan air. Gunakan FOR EACH!",
+                blocks: [
+                    {value: "untuk_setiap", text: "🔄 UNTUK SETIAP"},
+                    {value: "bunga", text: "🌸 BUNGA"},
+                    {value: "siram", text: "💧 SIRAM"},
+                    {value: "petik", text: "✋ PETIK"}
+                ],
+                solution: ["untuk_setiap", "bunga", "siram"],
+                stars: 7
+            },
+            8: {
+                title: "Cerita 8: Dapur Robot",
+                nashiri: "Koko, ayo masak! Tapi kita perlu fungsi khusus untuk membuat kue.",
+                koko: "Aku buat fungsi BUAT_KUE yang bisa dipanggil kapan saja. Praktis kan?",
+                challenge: "Buat fungsi BUAT_KUE, lalu panggil untuk membuat 2 kue!",
+                blocks: [
+                    {value: "fungsi", text: "⚙️ BUAT FUNGSI"},
+                    {value: "buat_kue", text: "🧁 BUAT_KUE"},
+                    {value: "panggil", text: "📞 PANGGIL"},
+                    {value: "makan", text: "😋 MAKAN"}
+                ],
+                solution: ["fungsi", "buat_kue", "panggil", "panggil"],
+                stars: 8
+            },
+            9: {
+                title: "Cerita 9: Pertandingan Robot",
+                nashiri: "Final battle! Koko vs Robot Jahat. Kita butuh strategi kompleks!",
+                koko: "Aku akan gunakan semua yang sudah kupelajari. Loop, kondisi, dan fungsi sekaligus!",
+                challenge: "Selama musuh ada: cek jarak, jika dekat serang, jika jauh maju. Kombinasi semua!",
+                blocks: [
+                    {value: "selama_musuh", text: "👹 SELAMA ADA MUSUH"},
+                    {value: "cek_jarak", text: "📏 CEK JARAK"},
+                    {value: "jika_dekat", text: "🎯 JIKA DEKAT"},
+                    {value: "serang", text: "⚔️ SERANG"},
+                    {value: "jika_jauh", text: "🔭 JIKA JAUH"},
+                    {value: "maju", text: "⬆️ MAJU"}
+                ],
+                solution: ["selama_musuh", "cek_jarak", "jika_dekat", "serang", "jika_jauh", "maju"],
+                stars: 9
+            },
+            10: {
+                title: "Cerita 10: Master Programmer",
+                nashiri: "Koko, kita sudah jadi master programmer! Saatnya tantangan terakhir!",
+                koko: "Aku akan buat program AI sederhana: belajar, adaptasi, lalu optimasi!",
+                challenge: "Buat AI sederhana: INPUT data, PROSES dengan algorithm, OUTPUT hasil, lalu OPTIMASI!",
+                blocks: [
+                    {value: "input", text: "📥 INPUT DATA"},
+                    {value: "proses", text: "🔄 PROSES"},
+                    {value: "algorithm", text: "🧠 ALGORITHM"},
+                    {value: "output", text: "📤 OUTPUT"},
+                    {value: "optimasi", text: "⚡ OPTIMASI"},
+                    {value: "error", text: "❌ ERROR"}
+                ],
+                solution: ["input", "proses", "algorithm", "output", "optimasi"],
+                stars: 10
             }
         };
         
@@ -443,7 +552,7 @@
                 if (index < targetStars) {
                     setTimeout(() => {
                         star.classList.add('filled');
-                    }, index * 200);
+                    }, index * 100);
                 } else {
                     star.classList.remove('filled');
                 }
@@ -451,10 +560,21 @@
         }
         
         function setupCodeBlocks() {
+            // Reset selectedBlocks setiap kali setup ulang
+            selectedBlocks = [];
+            
+            document.querySelectorAll('.code-block').forEach(block => {
+                // Hapus event listener lama
+                block.replaceWith(block.cloneNode(true));
+            });
+            
+            // Setup event listener baru
             document.querySelectorAll('.code-block').forEach(block => {
                 block.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const levelData = levels[currentLevel];
+                    
+                    console.log('Clicked block:', value); // Debug
                     
                     if (this.classList.contains('selected')) {
                         this.classList.remove('selected');
@@ -465,13 +585,14 @@
                             document.querySelectorAll('.code-block.selected').forEach(b => b.classList.remove('selected'));
                             selectedBlocks = [];
                         }
-                        // Untuk level 2 & 3, maksimal sesuai solution length
+                        // Untuk level lainnya, maksimal sesuai solution length
                         if (selectedBlocks.length < levelData.solution.length) {
                             this.classList.add('selected');
                             selectedBlocks.push(value);
                         }
                     }
                     
+                    console.log('Current selectedBlocks:', selectedBlocks); // Debug
                     updateSolutionArea();
                 });
             });
@@ -492,9 +613,36 @@
         }
         
         function checkSolution() {
+            console.log('=== DEBUG INFO ===');
+            console.log('Current level:', currentLevel);
+            console.log('Selected blocks:', selectedBlocks);
+            console.log('Expected solution:', levels[currentLevel].solution);
+            
+            if (selectedBlocks.length === 0) {
+                const feedback = document.getElementById('feedback');
+                feedback.innerHTML = `
+                    <div class="feedback error">
+                        🤔 Pilih tombol dulu ya Nashiri sebelum klik Jalankan!
+                    </div>
+                `;
+                return;
+            }
+            
             const levelData = levels[currentLevel];
-            const isCorrect = selectedBlocks.length === levelData.solution.length && 
-                             selectedBlocks.every(block => levelData.solution.includes(block));
+            let isCorrect = false;
+            
+            // Cek apakah semua elemen solution ada di selectedBlocks dengan urutan yang benar
+            if (selectedBlocks.length === levelData.solution.length) {
+                if (currentLevel <= 3) {
+                    // Level 1-3: urutan tidak penting, yang penting semua ada
+                    isCorrect = levelData.solution.every(item => selectedBlocks.includes(item));
+                } else {
+                    // Level 4-10: urutan penting
+                    isCorrect = selectedBlocks.every((item, index) => item === levelData.solution[index]);
+                }
+            }
+            
+            console.log('Check result - isCorrect:', isCorrect);
             
             const feedback = document.getElementById('feedback');
             
@@ -502,25 +650,30 @@
                 const responses = [
                     "🎉 Hebat Nashiri! Koko berhasil! Kamu pintar sekali!",
                     "⭐ Bagus banget! Koko senang sekali bisa bermain dengan Nashiri!",
-                    "🌟 Wow! Nashiri dan Koko tim yang hebat! Kalian berhasil!"
+                    "🌟 Wow! Nashiri dan Koko tim yang hebat! Kalian berhasil!",
+                    "🚀 Luar biasa! Nashiri semakin jago programming!",
+                    "🏆 Amazing! Koko bangga sama Nashiri!"
                 ];
                 
                 feedback.innerHTML = `
                     <div class="feedback success">
                         ${responses[Math.floor(Math.random() * responses.length)]}
-                        ${currentLevel < 3 ? '<br><button class="btn btn-primary" style="margin-top: 15px;" onclick="nextLevel()">🎈 Cerita Selanjutnya!</button>' : '<br><strong>🏆 Selamat! Nashiri sudah jadi teman terbaik Koko! 🎊</strong>'}
+                        ${currentLevel < 10 ? '<br><button class="btn btn-primary" style="margin-top: 15px;" onclick="nextLevel()">🎈 Cerita Selanjutnya!</button>' : '<br><strong>🏆 SELAMAT! Nashiri sudah jadi MASTER PROGRAMMER! Kamu dan Koko tim programming terhebat! 🎊✨</strong>'}
                     </div>
                 `;
             } else {
                 const encouragements = [
                     "🤔 Hmm, coba lagi ya Nashiri! Koko masih bingung nih!",
                     "😊 Ayo coba sekali lagi! Nashiri pasti bisa!",
-                    "🎈 Tidak apa-apa, mari kita coba lagi bersama!"
+                    "🎈 Tidak apa-apa, mari kita coba lagi bersama!",
+                    "💡 Hampir benar! Cek lagi urutannya ya!",
+                    "🌟 Jangan menyerah! Programming butuh latihan!"
                 ];
                 
                 feedback.innerHTML = `
                     <div class="feedback error">
                         ${encouragements[Math.floor(Math.random() * encouragements.length)]}
+                        <br><small style="font-size: 0.9em; opacity: 0.8;">Hint: Pilih ${levelData.solution.join(' → ')}</small>
                     </div>
                 `;
             }
@@ -537,7 +690,7 @@
         
         function nextLevel() {
             currentLevel++;
-            if (currentLevel <= 3) {
+            if (currentLevel <= 10) {
                 loadLevel(currentLevel);
                 document.getElementById('feedback').innerHTML = '';
             }
